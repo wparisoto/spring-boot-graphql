@@ -15,7 +15,7 @@ public class MyDataLoader {
         this.userRepository = userRepository;
         this.articleRepository = articleRepository;
     }
-//    @PostConstruct
+    @PostConstruct
     private void generateData(){
         List<User> users = new ArrayList<>();
         users.add(User.builder().name("Igor").createdAt(new Date()).age(24).articlesIds(new ArrayList<>()).articlesIds(new ArrayList<>()).build());
