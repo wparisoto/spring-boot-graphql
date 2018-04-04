@@ -2,13 +2,14 @@ package pac.controllers;
 
 import graphql.ExecutionResult;
 import graphql.GraphQL;
+import pac.graphqlUtilities.GraphQlUtility;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import pac.graphql_utilities.GraphQlUtility;
 
 import java.io.IOException;
 

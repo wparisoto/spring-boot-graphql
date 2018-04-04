@@ -3,22 +3,20 @@ schema {
 }
 
 type Query {
-    users: [User]
-    user(id: String): User
+    authors: [Author]
+    book(id: String): Author
 }
-
-type User {
+type Author {
     id: String
-    name: String
-    age: Int
-    nationality: String
-    createdAt: String
-    friends: [User]
-    articles: [Article]
+    firstName: String
+    lastName: String
+    books: [Book]
 }
-
-type Article {
+type Book {
    id: String
    title: String
-   minutesRead: Int
+   isbn: String
+   pageCount : Long
 }
+
+

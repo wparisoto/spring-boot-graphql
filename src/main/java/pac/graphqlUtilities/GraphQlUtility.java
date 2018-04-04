@@ -1,4 +1,4 @@
-package pac.graphql_utilities;
+package pac.graphqlUtilities;
 
 import graphql.GraphQL;
 import graphql.schema.DataFetcher;
@@ -11,9 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
-import pac.dataFetchers.AllUsersDataFetcher;
-import pac.dataFetchers.ArticlesDataFetcher;
-import pac.dataFetchers.UserDataFetcher;
+import pac.dataFetchers.AllAuthorsDataFetcher;
+import pac.dataFetchers.BooksDataFetcher;
+import pac.dataFetchers.AuthorDataFetcher;
 
 import javax.annotation.PostConstruct;
 import java.io.File;
@@ -28,13 +28,13 @@ public class GraphQlUtility {
     @Value("classpath:schemas.graphqls")
     private Resource schemaResource;
     private GraphQL graphQL;
-    private AllUsersDataFetcher allUsersDataFetcher;
-    private UserDataFetcher userDataFetcher;
-    private ArticlesDataFetcher articlesDataFetcher;
+    private AllAuthorsDataFetcher allUsersDataFetcher;
+    private AuthorDataFetcher userDataFetcher;
+    private BooksDataFetcher articlesDataFetcher;
 
     @Autowired
-    GraphQlUtility(AllUsersDataFetcher allUsersDataFetcher, UserDataFetcher userDataFetcher,
-                   ArticlesDataFetcher articlesDataFetcher) throws IOException {
+    GraphQlUtility(AllAuthorsDataFetcher allUsersDataFetcher, AuthorDataFetcher userDataFetcher,
+                   BooksDataFetcher articlesDataFetcher) throws IOException {
         this.allUsersDataFetcher = allUsersDataFetcher;
         this.userDataFetcher = userDataFetcher;
         this.articlesDataFetcher = articlesDataFetcher;
