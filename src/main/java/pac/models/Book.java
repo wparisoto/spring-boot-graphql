@@ -2,6 +2,8 @@ package pac.models;
 
 
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 import lombok.Getter;
@@ -12,22 +14,27 @@ import pac.crudDefault.EntidadePersistente;
 @Setter
 @Entity
 @Table(schema = "public")
-public class Book implements EntidadePersistente{
+public class Book implements EntidadePersistente, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -500568335985716874L;
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+	@Column(name="title")
     private String title;
 
-    @Column
+	@Column(name="isbn")
     private String isbn;
 
-    @Column
+	@Column(name="pagecount")
     private int pageCount;
 
     @ManyToOne
-    @JoinColumn(name = "idAuthor", nullable = false)
+    @JoinColumn(name = "idauthor", nullable = false)
     private Author author;
 
 }

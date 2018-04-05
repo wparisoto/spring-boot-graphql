@@ -28,16 +28,16 @@ public class GraphQlUtility {
     @Value("classpath:schemas.graphqls")
     private Resource schemaResource;
     private GraphQL graphQL;
-    private AllAuthorsDataFetcher allUsersDataFetcher;
-    private AuthorDataFetcher userDataFetcher;
-    private BooksDataFetcher articlesDataFetcher;
+    private AllAuthorsDataFetcher allAuthorsDataFetcher;
+    private AuthorDataFetcher authorDataFetcher;
+    private BooksDataFetcher booksDataFetcher;
 
     @Autowired
     GraphQlUtility(AllAuthorsDataFetcher allUsersDataFetcher, AuthorDataFetcher userDataFetcher,
-                   BooksDataFetcher articlesDataFetcher) throws IOException {
-        this.allUsersDataFetcher = allUsersDataFetcher;
-        this.userDataFetcher = userDataFetcher;
-        this.articlesDataFetcher = articlesDataFetcher;
+                   BooksDataFetcher booksDataFetcher) throws IOException {
+        this.allAuthorsDataFetcher = allUsersDataFetcher;
+        this.authorDataFetcher = userDataFetcher;
+        this.booksDataFetcher = booksDataFetcher;
     }
 
     @PostConstruct
@@ -52,11 +52,11 @@ public class GraphQlUtility {
     public RuntimeWiring buildRuntimeWiring(){
         return newRuntimeWiring()
                 .type("Query", typeWiring -> typeWiring
-                    .dataFetcher("users", allUsersDataFetcher)
-                    .dataFetcher("user", userDataFetcher))
-                .type("User", typeWiring -> typeWiring
-                    .dataFetcher("articles", articlesDataFetcher)
-                    .dataFetcher("friends", allUsersDataFetcher))
+                    .dataFetcher("authors", allAuthorsDataFetcher)
+                    .dataFetcher("author", authorDataFetcher))
+                .type("Author", typeWiring -> typeWiring
+                    .dataFetcher("articles", booksDataFetcher)
+                    .dataFetcher("friends", allAuthorsDataFetcher))
                 .build();
     }
 }
