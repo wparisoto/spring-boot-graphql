@@ -1,6 +1,7 @@
 package pac.dataFetchers;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import graphql.schema.DataFetcher;
@@ -11,6 +12,7 @@ import pac.repository.BookRepository;
 @Component
 public class BooksDataFetcher implements DataFetcher<List<Book>>{
 
+	@Autowired
     private BookRepository bookRepository;
 
    
@@ -24,6 +26,8 @@ public class BooksDataFetcher implements DataFetcher<List<Book>>{
 //        }
 //        List<Book> articles = articleService.findAllUserArticles(articleIds);
 //        return articles;
+    	
+    	
     	return bookRepository.findAll();
     }
 }

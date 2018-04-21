@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import graphql.language.Selection;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
 import pac.models.Author;
@@ -18,9 +19,10 @@ public class AllAuthorsDataFetcher implements DataFetcher<List<Author>> {
 
     @Override
     public List<Author> get(DataFetchingEnvironment env) {
-        Author user =  env.getSource();
+        Author author =  env.getSource();
+        
+        List<Selection> campos = env.getFields().stream().findFirst().get().getSelectionSet().getSelections();
         
         return authorRepository.findAll();
-                
     }
 }

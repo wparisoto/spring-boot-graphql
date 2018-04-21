@@ -1,22 +1,31 @@
 schema {
     query: Query
+    mutation : Mutation
 }
 
 type Query {
     authors: [Author]
     book(id: String): Author
+    books: [Book]
 }
+
+type Mutation {
+    writeBook(id: Long!, title: String!) : Book!
+}
+
+
 type Author {
     id: String
     firstName: String
     lastName: String
     books: [Book]
 }
+
 type Book {
    id: String
    title: String
-   isbn: String
-   pageCount : Long
+   pageCount: Long
 }
 
 
+	

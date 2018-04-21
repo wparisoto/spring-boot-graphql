@@ -1,8 +1,7 @@
 package pac.controllers;
 
-import graphql.ExecutionResult;
-import graphql.GraphQL;
-import pac.graphqlUtilities.GraphQlUtility;
+import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -11,7 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.IOException;
+import graphql.ExecutionResult;
+import graphql.GraphQL;
+import graphql.GraphQLError;
+import pac.graphqlUtilities.GraphQlUtility;
 
 @RestController
 public class MainController {
@@ -26,7 +28,6 @@ public class MainController {
 
     @PostMapping(value = "/query", consumes=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity query(@RequestBody String query){
-    	
         ExecutionResult result = graphQL.execute(query);
         System.out.println("errors: "+result.getErrors());
         return ResponseEntity.ok(result.getData());
