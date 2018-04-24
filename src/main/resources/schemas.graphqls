@@ -5,7 +5,6 @@ schema {
 
 type Query {
     authors: [Author]
-    book(id: String): Author
     books: [Book]
 }
 
@@ -18,13 +17,14 @@ type Author {
     id: String
     firstName: String
     lastName: String
-    books: [Book]
+    books: [Book]!
 }
 
 type Book {
    id: String
    title: String
    pageCount: Long
+   author : Author
 }
 
 

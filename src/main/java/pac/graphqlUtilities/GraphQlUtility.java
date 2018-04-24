@@ -23,7 +23,7 @@ import graphql.schema.idl.TypeRuntimeWiring;
 import pac.dataFetchers.AllAuthorsDataFetcher;
 import pac.dataFetchers.AuthorDataFetcher;
 import pac.dataFetchers.BooksDataFetcher;
-import pac.dataFetchers.WhiteBookDataFetcher;
+import pac.dataFetchers.WriteBookDataFetcher;
 
 @Component
 public class GraphQlUtility {
@@ -39,7 +39,7 @@ public class GraphQlUtility {
     @Autowired
     private BooksDataFetcher booksDataFetcher;
     @Autowired
-    private WhiteBookDataFetcher writeBookDataFetcher;
+    private WriteBookDataFetcher writeBookDataFetcher;
 
 
     @PostConstruct
@@ -59,8 +59,7 @@ public class GraphQlUtility {
                     .dataFetcher("books", booksDataFetcher)
                     .dataFetcher("writeBook", writeBookDataFetcher)
                     
-                		)
-                    //.dataFetcher("books", booksDataFetcher))
+                )
                 .type("Author", typeWiring -> typeWiring
                     .dataFetcher("books", booksDataFetcher))
                 

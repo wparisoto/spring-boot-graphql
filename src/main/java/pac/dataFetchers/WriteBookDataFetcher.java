@@ -11,7 +11,7 @@ import pac.models.Book;
 import pac.repository.BookRepository;
 
 @Component
-public class WhiteBookDataFetcher implements DataFetcher<Book>{
+public class WriteBookDataFetcher implements DataFetcher<Book>{
 
 	@Autowired
 	private BookRepository bookRepository;
