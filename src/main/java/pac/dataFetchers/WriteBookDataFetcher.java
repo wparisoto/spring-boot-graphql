@@ -30,7 +30,6 @@ public class WriteBookDataFetcher implements DataFetcher<Book>{
 		bookRepository.save(book);
       
       return book;
-     // Author user = userService.findOneById(new ObjectId(String.valueOf(args.get("id"))));
       
 	}
 

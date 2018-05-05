@@ -19,14 +19,6 @@ public class BooksDataFetcher implements DataFetcher<List<Book>>{
 
     @Override
     public List<Book> get(DataFetchingEnvironment env) {
-//        Author user = env.getSource();
-//        List<String> articleIds = new ArrayList<>();
-//        if(user!=null){
-//            articleIds = user.getArticlesIds();
-//        }
-//        List<Book> articles = articleService.findAllUserArticles(articleIds);
-//        return articles;
-    	
     	
     	return bookRepository.findAll();
     }

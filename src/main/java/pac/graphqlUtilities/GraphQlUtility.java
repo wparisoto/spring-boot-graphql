@@ -60,31 +60,12 @@ public class GraphQlUtility {
                     .dataFetcher("writeBook", writeBookDataFetcher)
                     
                 )
-                .type("Author", typeWiring -> typeWiring
-                    .dataFetcher("books", booksDataFetcher))
-                
+                               
                 .type("Mutation", typeWiring -> typeWiring
                         .dataFetcher("writeBook", writeBookDataFetcher))
-                
-                
-//                .type(TypeRuntimeWiring.newTypeWiring("Mutation")
-//                        .dataFetcher("writeBook", writeBookDataFetcher)
-//                )
-                
+
                 .build();
     }
-    
-//    private RuntimeWiring buildRuntimeWiringTeste() {
-//        return RuntimeWiring.newRuntimeWiring()
-//                .type(TypeRuntimeWiring.newTypeWiring("Query")
-//                        .dataFetcher("numberHolder", MutationWiring.numberHolderFetcher))
-//                .type(TypeRuntimeWiring.newTypeWiring("theNumber")
-//                        .dataFetcher("theNumber", MutationWiring.theNumberFetcher))
-//                .type(TypeRuntimeWiring.newTypeWiring("Mutation")
-//                        .dataFetcher("changeTheNumber", MutationWiring.changeTheNumberFetcher)
-//                        .dataFetcher("failToChangeTheNumber", MutationWiring.failToChangeTheNumberFetcher)
-//                )
-//                .build();
-//    }
+
 }
 
